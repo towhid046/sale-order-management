@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu >li >a.active{
+    color: rgb(34 197 94);
+}
