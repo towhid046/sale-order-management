@@ -8,6 +8,7 @@ const AuthProvider = ({ children }) => {
   const handleAddOrderToggle = () => {
     setIsToggle(!isToggle);
   };
+
   const userInfo = { user: "User Name", handleAddOrderToggle, isToggle };
 
   return (

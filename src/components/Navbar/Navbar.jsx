@@ -3,6 +3,7 @@ import { Tooltip } from "react-tooltip";
 import swal from "sweetalert";
 import { useContext } from "react";
 import { UserContext } from "../../provider/AuthProvider";
+import ModalForm from "./../ModalForm/ModalForm";
 
 const Navbar = () => {
   const { user, logOutUser, handleAddOrderToggle, isToggle } =
@@ -19,10 +20,8 @@ const Navbar = () => {
     }
   };
 
-  console.log(isToggle);
-
   return (
-    <nav className="bg-gray-800 py-5 w-full z-50 top-0">
+    <nav className="bg-gray-800 py-5 w-full z-50 top-0 sticky ">
       <div className="container relative px-4 mx-auto flex justify-between items-center">
         {/* Left side: Toggle Button and Website Name */}
         <div className="flex items-center italic">
@@ -64,7 +63,6 @@ const Navbar = () => {
               <button
                 data-tooltip-id="my-tooltip"
                 data-tooltip-content="Add Sale Order"
-                to={"/login"}
                 onClick={handleAddOrderToggle}
                 className={" border py-1.5 px-5 text-gray-200  font-semibold"}
               >
@@ -75,6 +73,12 @@ const Navbar = () => {
         </div>
         <Tooltip id="my-tooltip" />
       </div>
+
+      {/* Modal form */}
+      <ModalForm
+        handleAddOrderToggle={handleAddOrderToggle}
+        isToggle={isToggle}
+      />
     </nav>
   );
 };
